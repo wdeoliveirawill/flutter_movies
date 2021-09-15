@@ -1,3 +1,4 @@
+import 'package:flutter_movies/application/auth/auth_service.dart';
 import 'package:flutter_movies/repositories/login/login_repository.dart';
 import 'package:flutter_movies/repositories/login/login_repository_impl.dart';
 import 'package:flutter_movies/services/login/login_service.dart';
@@ -14,5 +15,6 @@ class ApplicationBindings implements Bindings {
     Get.lazyPut<LoginService>(
         () => LoginServiceImpl(loginRepository: Get.find()),
         fenix: true);
+    Get.put(AuthService()).init();
   }
 }
